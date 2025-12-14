@@ -63,8 +63,13 @@ export const Maezinha: React.FC = () => {
                {/* Flower Action */}
                <div className="bg-white p-6 rounded-[2.5rem] text-center hover:shadow-lg transition-all cursor-pointer border border-blue-50 group hover:-translate-y-1" onClick={() => setFlowers(f => f + 1)}>
                    <div className="w-12 h-12 bg-pink-100 rounded-full mx-auto mb-3 flex items-center justify-center text-pink-500 group-hover:bg-pink-200 transition-colors">
-                     {/* Distinct Flower Icon */}
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.2-1.5.6-.4-.4-.9-.6-1.5-.6-1.1 0-2 .9-2 2 0 .6.2 1.1.6 1.5-.4.4-.6.9-.6 1.5 0 1.1.9 2 2 2 .6 0 1.1-.2 1.5-.6.4.4.9.6 1.5.6 1.1 0 2-.9 2-2 0-.6-.2-1.1-.6-1.5.4-.4.6-.9.6-1.5 0-1.1-.9-2-2-2-.6 0-1.1.2-1.5.6-.4-.4-.9-.6-1.5-.6zm-1 9v11h2v-11h-2z"/></svg>
+                     {/* Clean Flower Icon */}
+                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.5c0 0-3 3-3 6.5s3 4.5 3 4.5 3-1 3-4.5-3-6.5-3-6.5z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15.5v6" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17.5c-2 0-3.5-1-4.5-2.5" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17.5c2 0 3.5-1 4.5-2.5" />
+                     </svg>
                   </div>
                   <div className="font-black text-3xl text-gray-800">{flowers}</div>
                   <div className="text-xs font-bold uppercase mt-1 text-gray-400">DAR FLOR</div>
@@ -72,7 +77,7 @@ export const Maezinha: React.FC = () => {
             </div>
             
             <div className="bg-blue-100 text-jr-blue p-6 rounded-[2rem] text-center text-sm font-bold uppercase">
-               A CADA FLORZINHA OU VELA, REZAMOS UMA AVE MARIA.
+               A CADA FLORZINHA OU ACENDER UMA VELA, REZE UMA AVE MARIA.
             </div>
           </div>
         </div>

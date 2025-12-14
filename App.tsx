@@ -10,6 +10,7 @@ import { Maezinha } from './components/Maezinha';
 import { Saints } from './components/Saints';
 import { Prayers } from './components/Prayers';
 import { Missions } from './components/Missions';
+import { Conectados } from './components/Conectados';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -66,6 +67,8 @@ const App: React.FC = () => {
         return <Prayers />;
       case 'missions':
         return <Missions />;
+      case 'conectados':
+        return <Conectados />;
       default:
         return <Hero onJoinClick={() => setCurrentView('missions')} onAboutClick={() => setCurrentView('about')} />;
     }
