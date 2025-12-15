@@ -27,6 +27,12 @@ export const Hero: React.FC<HeroProps> = ({ onJoinClick, onAboutClick }) => {
     }
   };
 
+  const LightningIcon = () => (
+    <svg className="w-5 h-5 mx-4 inline-block text-white mb-1" fill="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+  );
+
   return (
     <div className="relative bg-white min-h-[90vh] flex flex-col justify-center overflow-hidden uppercase">
       
@@ -38,8 +44,13 @@ export const Hero: React.FC<HeroProps> = ({ onJoinClick, onAboutClick }) => {
       {/* Marquee Top */}
       <div className="w-full bg-jr-blue py-3 mb-12 z-10 rotate-[-1deg] shadow-soft">
         <div className="marquee-container">
-          <div className="marquee-content text-white font-bold text-lg tracking-widest uppercase">
-             ★ JESUS REVOLUTION ★ IDE PELO MUNDO ★ GERAÇÃO JOÃO PAULO II ★ O AMOR VENCEU ★ JESUS REVOLUTION ★ IDE PELO MUNDO ★ GERAÇÃO JOÃO PAULO II ★ O AMOR VENCEU
+          <div className="marquee-content text-white font-bold text-lg tracking-widest uppercase whitespace-nowrap">
+             <span className="flex items-center">
+               <LightningIcon /> IDE PELO MUNDO <LightningIcon /> JESUSZANDO <LightningIcon /> TUDO PELO TUDO 
+               <LightningIcon /> IDE PELO MUNDO <LightningIcon /> JESUSZANDO <LightningIcon /> TUDO PELO TUDO 
+               <LightningIcon /> IDE PELO MUNDO <LightningIcon /> JESUSZANDO <LightningIcon /> TUDO PELO TUDO
+               <LightningIcon /> IDE PELO MUNDO <LightningIcon /> JESUSZANDO <LightningIcon /> TUDO PELO TUDO 
+             </span>
           </div>
         </div>
       </div>
@@ -47,24 +58,33 @@ export const Hero: React.FC<HeroProps> = ({ onJoinClick, onAboutClick }) => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
         
         {/* Main Title */}
-        <div className="mb-10">
-          <h1 className="text-6xl md:text-9xl font-black text-black tracking-tighter leading-none mb-2">
-            IDE PELO
+        <div className="mb-10 flex flex-col items-center justify-center md:gap-4">
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-none mb-2 md:mb-0 text-jr-blue drop-shadow-sm">
+            JESUS
           </h1>
-          <span className="inline-block gradient-text text-6xl md:text-9xl font-black tracking-tighter">
-            MUNDO
+          <span className="text-6xl md:text-9xl font-black tracking-tighter leading-none text-black">
+            REVOLUTION
           </span>
         </div>
 
-        {/* Verse Box */}
-        <div className="max-w-xl mx-auto bg-white/80 backdrop-blur border border-blue-100 p-8 rounded-[3rem] shadow-soft mb-12 hover:-translate-y-1 transition-transform">
-          <p className="text-lg md:text-xl font-medium text-gray-600 uppercase">
+        {/* Verse & Theme Box */}
+        <div className="max-w-2xl mx-auto bg-white/80 backdrop-blur border border-blue-100 p-8 rounded-[3rem] shadow-soft mb-12 hover:-translate-y-1 transition-transform">
+          <p className="text-lg md:text-xl font-medium text-gray-600 uppercase mb-6">
             "Ide por todo o mundo e pregai o Evangelho a toda criatura."
           </p>
-          <div className="mt-4 flex justify-center">
+          
+          <div className="flex flex-col items-center gap-4">
              <span className="bg-blue-50 text-jr-blue px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                Marcos 16:15
              </span>
+             
+             <div className="w-full h-px bg-blue-100 my-2"></div>
+             
+             <div className="bg-black text-white px-6 py-3 rounded-2xl shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                <p className="font-black text-lg md:text-xl tracking-tight">
+                   TEMA 2026: ELE ESTÁ NO MEIO DE NÓS
+                </p>
+             </div>
           </div>
         </div>
 
