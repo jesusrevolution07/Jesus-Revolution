@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -12,8 +13,40 @@ import { Prayers } from './components/Prayers';
 import { Missions } from './components/Missions';
 import { Conectados } from './components/Conectados';
 import { CanalJR } from './components/CanalJR';
+import { Sitemap } from './components/Sitemap';
 
-const App: React.FC = () => {
+/**
+ * ------------------------------------------------------------------
+ * AGGRESSIVE HYBRID ROUTING ARCHITECTURE
+ * ------------------------------------------------------------------
+ * 1. Environment Detection: Checks if running in Cloud IDEs/Proxies.
+ * 2. Router Selection: Forces HashRouter in Preview, BrowserRouter in Prod.
+ * 3. Smart Redirects: Sends devs to Sitemap, Users to Main App.
+ * ------------------------------------------------------------------
+ */
+
+// 1. Environment Detection Utility
+const checkPreviewEnvironment = (): boolean => {
+  const host = window.location.hostname;
+  const href = window.location.href;
+  
+  const proxyIndicators = [
+    'googleusercontent',
+    'webcontainer',
+    'shim',
+    '.goog',
+    'scf.usercontent',
+    'stackblitz',
+    'codesandbox'
+  ];
+
+  return proxyIndicators.some(indicator => 
+    host.includes(indicator) || href.includes(indicator)
+  );
+};
+
+// Original Application Logic encapsulated in a component
+const JesusRevolutionApp: React.FC = () => {
   const [currentView, setCurrentView] = useState('home');
 
   const navButtons = [
@@ -162,6 +195,39 @@ const App: React.FC = () => {
         </div>
       </footer>
     </div>
+  );
+};
+
+// Main App Component with Routing Architecture
+const App: React.FC = () => {
+  const [isPreview, setIsPreview] = useState(false);
+
+  useEffect(() => {
+    setIsPreview(checkPreviewEnvironment());
+  }, []);
+
+  // 2. Router Selection
+  const Router = isPreview ? HashRouter : BrowserRouter;
+
+  return (
+    <Router>
+      <Routes>
+        {/* 3. Smart Redirects */}
+        <Route 
+          path="/" 
+          element={isPreview ? <Navigate to="/sitemap" replace /> : <Navigate to="/home" replace />} 
+        />
+        
+        {/* Dev Route */}
+        <Route path="/sitemap" element={<Sitemap />} />
+        
+        {/* Production/Main App Route */}
+        <Route path="/home" element={<JesusRevolutionApp />} />
+        
+        {/* Fallback for everything else */}
+        <Route path="*" element={<Navigate to={isPreview ? "/sitemap" : "/home"} replace />} />
+      </Routes>
+    </Router>
   );
 };
 
