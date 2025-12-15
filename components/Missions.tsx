@@ -48,7 +48,7 @@ export const Missions: React.FC = () => {
     { title: 'AMOR E MEMÓRIA', tags: ['IDOSOS', 'CARINHO'] },
     { title: 'JR KIDS', tags: ['CRIANÇAS', 'FUTURO'] },
     { title: 'DOAÇÃO DE ABRAÇOS', tags: ['RUA', 'ACOLHIDA'] },
-    { title: 'ENCONTRÃO DESPERTAI-VOS', tags: ['AVIVAMENTO', 'JOVENS'] },
+    { title: 'RETIRO DESPERTAI-VOS', tags: ['AVIVAMENTO', 'JOVENS'] },
   ];
 
   return (
@@ -123,16 +123,18 @@ export const Missions: React.FC = () => {
         {/* Social Actions Grid */}
         <div>
            <h3 className="text-4xl font-black text-black mb-10 text-center tracking-tight">NOSSAS AÇÕES</h3>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {socialActions.map((action, idx) => (
                  <div key={idx} className="bg-white border-2 border-blue-100 p-8 rounded-[3rem] hover:border-jr-blue transition-colors group">
-                    <h4 className="text-2xl font-black text-black group-hover:text-jr-blue transition-colors mb-4">{action.title}</h4>
-                    <div className="flex gap-2">
-                       {action.tags.map(tag => (
-                          <span key={tag} className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-xs font-bold">
-                             #{tag}
-                          </span>
-                       ))}
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <h4 className="text-3xl font-black text-black group-hover:text-jr-blue transition-colors">{action.title}</h4>
+                        <div className="flex gap-2 mt-2 md:mt-0">
+                        {action.tags.map(tag => (
+                            <span key={tag} className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-xs font-bold">
+                                #{tag}
+                            </span>
+                        ))}
+                        </div>
                     </div>
                  </div>
               ))}

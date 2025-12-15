@@ -14,65 +14,175 @@ export const Prayers: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-black py-20 px-4 uppercase">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-6xl font-black text-jr-blue uppercase mb-2 tracking-tighter">POWER HOUSE</h2>
-          <p className="text-xl font-bold bg-black text-white inline-block px-6 py-2 rounded-full uppercase">CONEXÃO DIRETA COM O CÉU</p>
+    <div className="min-h-screen bg-white text-black py-20 px-4">
+      {/* Background Floral Decoration (Blue tint) */}
+      <div className="fixed top-0 left-0 w-64 h-64 opacity-10 pointer-events-none text-blue-500">
+         <svg viewBox="0 0 100 100" fill="currentColor">
+            <path d="M50 0 C20 0 0 20 0 50 C0 80 20 100 50 100 C80 100 100 80 100 50 C100 20 80 0 50 0 Z M50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 C40 50 30 40 30 30 C30 20 40 10 50 10 Z" />
+         </svg>
+      </div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-7xl font-elegant text-jr-blue uppercase mb-4 tracking-tight drop-shadow-sm">
+            Sacrário <span className="text-blue-300">&</span> Luz
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto"></div>
+          <p className="text-lg font-serif italic text-blue-800 font-bold mt-4">"Tudo posso naquele que me fortalece"</p>
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex justify-center gap-6 mb-16">
           <button 
             onClick={() => setActiveTab('basics')}
-            className={`px-8 py-3 rounded-full font-black uppercase transition-all ${activeTab === 'basics' ? 'bg-jr-blue text-white shadow-lg' : 'bg-blue-50 text-black hover:bg-blue-100'}`}
+            className={`px-8 py-3 rounded-full font-serif font-bold uppercase tracking-widest text-sm transition-all border-2 ${activeTab === 'basics' ? 'bg-jr-blue text-white border-jr-blue shadow-lg' : 'bg-white text-blue-300 border-blue-100 hover:border-jr-blue hover:text-jr-blue'}`}
           >
-            ORAÇÕES BASE
+            Orações Base
           </button>
           <button 
             onClick={() => setActiveTab('liberation')}
-            className={`px-8 py-3 rounded-full font-black uppercase transition-all ${activeTab === 'liberation' ? 'bg-jr-blue text-white shadow-lg' : 'bg-blue-50 text-black hover:bg-blue-100'}`}
+            className={`px-8 py-3 rounded-full font-serif font-bold uppercase tracking-widest text-sm transition-all border-2 ${activeTab === 'liberation' ? 'bg-blue-900 text-white border-blue-900 shadow-lg' : 'bg-white text-blue-300 border-blue-100 hover:border-blue-900 hover:text-blue-900'}`}
           >
-            TERÇO DE LIBERTAÇÃO
+            Terço da Virgem Poderosa
           </button>
         </div>
 
         {activeTab === 'basics' && (
-          <div className="grid gap-6">
+          <div className="grid gap-8">
             {prayersList.map((prayer, idx) => (
-              <div key={idx} className="bg-white border border-blue-100 p-8 shadow-sm rounded-[3rem] hover:shadow-soft hover:border-blue-200 transition-all">
-                <h3 className="text-2xl font-black uppercase mb-4 text-jr-blue border-b border-gray-100 pb-2">{prayer.title}</h3>
-                <p className="font-bold text-lg leading-relaxed text-gray-600">{prayer.text}</p>
+              <div key={idx} className="bg-white p-10 shadow-soft rounded-xl border-l-8 border-jr-blue hover:shadow-xl transition-all">
+                <h3 className="text-3xl font-elegant uppercase mb-6 text-jr-blue flex items-center gap-4">
+                    <span className="text-4xl text-blue-100 font-serif font-bold">{idx + 1}</span>
+                    {prayer.title}
+                </h3>
+                <p className="font-serif text-xl leading-loose text-blue-900 font-medium text-justify">
+                    {prayer.text}
+                </p>
               </div>
             ))}
           </div>
         )}
 
         {activeTab === 'liberation' && (
-          <div className="bg-blue-50 border border-blue-100 p-10 rounded-[3rem] shadow-soft">
-            <h3 className="text-4xl font-black uppercase mb-8 text-center text-jr-blue">TERÇO DE LIBERTAÇÃO</h3>
+          <div className="bg-white border-2 border-blue-50 p-8 md:p-12 rounded-[2rem] shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-full h-3 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-900"></div>
             
-            <div className="space-y-6">
-              <div className="bg-white p-8 rounded-[2rem] shadow-sm">
-                <h4 className="font-black text-xl mb-2 text-black">1. INÍCIO</h4>
-                <p className="font-bold text-gray-500">CREIO EM DEUS PAI...</p>
-              </div>
+            <div className="text-center mb-12">
+                <div className="inline-block p-4 rounded-full bg-blue-50 text-blue-900 mb-4">
+                    <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                </div>
+                <h3 className="text-4xl md:text-5xl font-elegant uppercase text-blue-900 mb-2 font-bold">Terço de Libertação</h3>
+                <p className="font-serif text-2xl italic text-blue-400 font-bold">Da Virgem Poderosa</p>
+            </div>
+            
+            <div className="space-y-12">
+              
+              {/* Inicio */}
+              <section className="space-y-4 border-b-2 border-blue-50 pb-8">
+                <h4 className="font-elegant text-xl text-blue-700 font-bold uppercase tracking-widest border-l-4 border-blue-300 pl-4">1. Início</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-blue-50 p-6 rounded-2xl">
+                        <span className="font-black text-xs uppercase text-blue-300 block mb-1">Passo 1</span>
+                        <p className="font-serif font-bold text-xl text-blue-900">Sinal da Cruz</p>
+                    </div>
+                    <div className="bg-blue-50 p-6 rounded-2xl">
+                        <span className="font-black text-xs uppercase text-blue-300 block mb-1">Passo 2</span>
+                        <p className="font-serif font-bold text-xl text-blue-900">Vinde Espírito Santo</p>
+                    </div>
+                    <div className="bg-blue-50 p-6 rounded-2xl">
+                        <span className="font-black text-xs uppercase text-blue-300 block mb-1">Passo 3</span>
+                        <p className="font-serif font-bold text-xl text-blue-900">Colocar as Intenções</p>
+                    </div>
+                </div>
+              </section>
 
-              <div className="bg-white p-8 rounded-[2rem] shadow-sm">
-                <h4 className="font-black text-xl mb-2 text-black">2. NAS CONTAS GRANDES (PAI NOSSO)</h4>
-                <p className="font-bold italic text-jr-blue">"SE JESUS ME LIBERTAR, SEREI VERDADEIRAMENTE LIVRE."</p>
-              </div>
+              {/* Oferecimento */}
+              <section className="space-y-4 border-b-2 border-blue-50 pb-8">
+                 <h4 className="font-elegant text-xl text-blue-700 font-bold uppercase tracking-widest border-l-4 border-blue-300 pl-4">2. Oferecimento do Terço</h4>
+                 <div className="bg-blue-50/30 p-8 rounded-3xl font-serif text-blue-900 font-medium text-lg leading-relaxed italic text-justify border border-blue-100">
+                    "Divino Jesus, nós Vos oferecemos este terço que vamos rezar, meditando nos mistérios da Vossa Redenção. Concedei-nos, por intercessão da Virgem Maria, Mãe de Deus e nossa Mãe, as virtudes que nos são necessárias para bem rezá-lo e a graça de ganharmos as indulgências desta santa devoção. Jesus Crucificado! Ajoelhados aos Vossos pés, nós Vos oferecemos as lágrimas de sangue dAquela que Vos acompanhou no Vosso caminho sofredor da cruz, com intenso amor participante. Fazei, ó bom mestre, que apreciemos as lições que nos dão as lágrimas de sangue da Vossa Mãe Santíssima, a fim de que cumpramos a Vossa Santíssima Vontade aqui na terra, de tal modo que sejamos dignos de louvar-Vos no Céu por toda a eternidade. Amém!"
+                 </div>
+              </section>
 
-              <div className="bg-white p-8 rounded-[2rem] shadow-sm">
-                <h4 className="font-black text-xl mb-2 text-black">3. NAS CONTAS PEQUENAS (AVE MARIA)</h4>
-                <p className="font-bold italic text-jr-blue">"JESUS, TEM PIEDADE DE MIM! JESUS, CURA-ME! JESUS, SALVA-ME! JESUS, LIBERTA-ME!"</p>
-              </div>
+              {/* Orações Iniciais */}
+              <section className="space-y-4 border-b-2 border-blue-50 pb-8">
+                <h4 className="font-elegant text-xl text-blue-700 font-bold uppercase tracking-widest border-l-4 border-blue-300 pl-4">3. Orações Iniciais</h4>
+                <ul className="font-serif text-blue-800 font-bold text-lg list-disc list-inside space-y-2 ml-4">
+                    <li>Credo</li>
+                    <li>1 Pai Nosso</li>
+                    <li>3 Ave Marias</li>
+                </ul>
+              </section>
 
-              <div className="bg-white p-8 rounded-[2rem] shadow-sm">
-                <h4 className="font-black text-xl mb-2 text-black">4. FINAL</h4>
-                <p className="font-bold mb-2 text-gray-500">SALVE RAINHA...</p>
-                <p className="text-sm font-bold bg-black text-white inline-block px-3 py-1 rounded-full uppercase">DICA: REZE COM AUTORIDADE!</p>
-              </div>
+              {/* Mistérios */}
+              <section className="space-y-6 border-b-2 border-blue-50 pb-8">
+                 <h4 className="font-elegant text-xl text-blue-700 font-bold uppercase tracking-widest border-l-4 border-blue-300 pl-4">4. Mistérios da Libertação</h4>
+                 <div className="space-y-4 font-serif">
+                    {[
+                        "Contemplamos como Jesus nos deu um brilhante exemplo na luta contra Satanás e seu reino.",
+                        "Contemplamos como Jesus venceu a morte e o inferno pela Sua paixão e morte na cruz.",
+                        "Contemplamos a Cruz de Cristo que se tornou um sinal de terror para Satanás.",
+                        "Contemplamos como Jesus deu à Virgem Maria o poder de esmagar a cabeça de Satanás.",
+                        "Contemplamos como Jesus deu à Virgem Maria poder sobre Satanás eternamente."
+                    ].map((mistery, i) => (
+                        <div key={i} className="flex gap-4 items-start p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                            <div className="min-w-[32px] h-8 rounded-full bg-blue-900 text-white flex items-center justify-center text-sm font-black mt-1">{i+1}º</div>
+                            <p className="text-blue-900 font-semibold text-lg leading-tight">{mistery}</p>
+                        </div>
+                    ))}
+                 </div>
+              </section>
+
+              {/* Como Rezar */}
+              <section className="space-y-6 border-b-2 border-blue-50 pb-8">
+                 <h4 className="font-elegant text-xl text-blue-700 font-bold uppercase tracking-widest border-l-4 border-blue-300 pl-4">5. Como Rezar as Contas</h4>
+                 
+                 <div className="grid gap-6">
+                    <div className="bg-white border-l-8 border-blue-400 shadow-sm p-6 rounded-r-2xl">
+                        <h5 className="font-black text-blue-400 text-sm uppercase mb-2">Nas Contas Grandes</h5>
+                        <p className="font-serif font-bold text-blue-900 text-lg text-justify">
+                           “Levanta-Se Deus, pela intercessão da Virgem Maria, de São Miguel Arcanjo e de toda a Milícia Celeste sejam dispersos seus inimigos, e fujam de Sua Face todos os que O odeiam. Em nome do Pai do Filho e do Espírito Santo. Amém.”
+                        </p>
+                    </div>
+
+                    <div className="bg-white border-l-8 border-blue-600 shadow-sm p-6 rounded-r-2xl">
+                        <h5 className="font-black text-blue-600 text-sm uppercase mb-2">Nas Contas Pequenas</h5>
+                        <p className="font-serif font-bold text-blue-900 text-lg text-justify">
+                           “Ave Maria, Virgem Poderosa, Imaculada Conceição, Rainha das Vitórias, que as Vossas lágrimas de sangue destruam as forças do Inferno. Assim seja.”
+                        </p>
+                    </div>
+
+                    <div className="bg-white border-l-8 border-blue-900 shadow-sm p-6 rounded-r-2xl">
+                        <h5 className="font-black text-blue-900 text-sm uppercase mb-2">No Lugar do Glória (Medalha de São Bento)</h5>
+                        <p className="font-serif font-bold text-blue-900 text-lg text-justify">
+                           “A Cruz Sagrada seja minha luz. Não seja o dragão meu guia. Retira-te, satanás! Nunca me aconselhes coisas vãs. É mau o que tu me ofereces, bebe tu mesmo os teus venenos!”
+                        </p>
+                    </div>
+                 </div>
+
+                 <div className="bg-blue-50 p-6 rounded-xl text-center font-serif font-bold text-blue-400 uppercase tracking-widest text-sm">
+                    Ao final de cada mistério, pedir intercessão dos Anjos e Santos.
+                 </div>
+              </section>
+
+              {/* Finalização */}
+              <section className="space-y-6">
+                <h4 className="font-elegant text-xl text-blue-700 font-bold uppercase tracking-widest border-l-4 border-blue-300 pl-4">6. Finalização</h4>
+                
+                <div className="space-y-4 font-serif text-center bg-blue-50/50 p-8 rounded-3xl">
+                    <p className="text-blue-900 font-black text-xl">Ó MARIA CONCEBIDA SEM PECADO, ROGAI POR NÓS QUE RECORREMOS A VÓS.</p>
+                    <div className="h-px w-20 bg-blue-200 mx-auto"></div>
+                    <p className="text-blue-900 font-black text-xl">JESUS, MANSO E HUMILDE DE CORAÇÃO, FAZEI O NOSSO CORAÇÃO SEMELHANTE AO VOSSO.</p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-900 to-black text-white p-10 rounded-[2rem] text-center shadow-2xl mt-8 ring-4 ring-blue-100">
+                    <h5 className="font-elegant text-3xl mb-6 text-blue-200 font-bold">Salve Rainha</h5>
+                    <p className="font-serif text-lg leading-relaxed font-medium">
+                        Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva. A vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei, e depois deste desterro mostrai-nos Jesus, bendito fruto do vosso ventre, ó clemente, ó piedosa, ó doce sempre Virgem Maria. Rogai por nós, santa Mãe de Deus, para que sejamos dignos das promessas de Cristo. Amém.
+                    </p>
+                </div>
+              </section>
+
             </div>
           </div>
         )}

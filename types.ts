@@ -33,3 +33,12 @@ export interface SpiritualResponse {
     artist: string;
   }[];
 }
+
+export interface JesusMessageResponse {
+  message: string;
+  verse: {
+    text: string;
+    reference: string;
+  };
+  prayer_tip: string;
+}

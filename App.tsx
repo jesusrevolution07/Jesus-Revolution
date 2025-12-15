@@ -11,9 +11,63 @@ import { Saints } from './components/Saints';
 import { Prayers } from './components/Prayers';
 import { Missions } from './components/Missions';
 import { Conectados } from './components/Conectados';
+import { CanalJR } from './components/CanalJR';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState('home');
+
+  const navButtons = [
+    { 
+      id: 'canal-jr', 
+      label: 'CANAL JR',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+    },
+    { 
+      id: 'store', 
+      label: 'JR STORE',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+    },
+    { 
+      id: 'prayers', 
+      label: 'ORAÇÕES',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" /></svg>
+    },
+    { 
+      id: 'missions', 
+      label: 'MISSÕES',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+    },
+    { 
+      id: 'conectados', 
+      label: 'CONECTADOS',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    },
+    { 
+      id: 'events', 
+      label: 'AGENDA',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+    },
+    { 
+      id: 'soul-dj', 
+      label: 'DJ JR',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+    },
+    { 
+      id: 'testimonials', 
+      label: 'TESTEMUNHOS',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+    },
+    { 
+      id: 'maezinha', 
+      label: 'MÃEZINHA',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+    },
+    { 
+      id: 'saints', 
+      label: 'SANTINHOS',
+      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+    },
+  ];
 
   const renderView = () => {
     switch (currentView) {
@@ -22,29 +76,28 @@ const App: React.FC = () => {
           <>
             <Hero onJoinClick={() => setCurrentView('missions')} onAboutClick={() => setCurrentView('about')} />
             <About />
-            <div className="bg-surface py-20 text-center uppercase">
-              <h3 className="text-black text-3xl font-black mb-10 tracking-tight">
-                 EXPLORE A <span className="text-jr-blue">COMUNIDADE</span>
-              </h3>
-              <div className="flex justify-center gap-6 flex-wrap px-4">
-                 <button 
-                  onClick={() => setCurrentView('maezinha')}
-                  className="group relative px-8 py-10 bg-white rounded-[2rem] shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all w-64 border border-blue-50"
-                >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-jr-blue">
-                     <svg className="w-12 h-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                  </div>
-                  <h4 className="text-black font-bold text-xl">MÃEZINHA</h4>
-                </button>
-                 <button 
-                  onClick={() => setCurrentView('saints')}
-                  className="group relative px-8 py-10 bg-white rounded-[2rem] shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all w-64 border border-blue-50"
-                >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-jr-blue">
-                     <svg className="w-12 h-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-                  </div>
-                  <h4 className="text-black font-bold text-xl">SANTINHOS</h4>
-                </button>
+            
+            {/* Explore Section - Compact "Agrupadinho" */}
+            <div className="bg-gradient-to-b from-white to-blue-50 py-16 text-center uppercase">
+              <div className="max-w-6xl mx-auto px-4">
+                <h3 className="text-black text-3xl font-black mb-10 tracking-tight">
+                   EXPLORE A <span className="text-jr-blue">COMUNIDADE</span>
+                </h3>
+                
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+                   {navButtons.map((btn) => (
+                      <button 
+                        key={btn.id}
+                        onClick={() => setCurrentView(btn.id)}
+                        className="group flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 border border-blue-50"
+                      >
+                        <div className="text-gray-400 mb-2 group-hover:text-jr-blue transition-colors">
+                           {btn.icon}
+                        </div>
+                        <h4 className="text-gray-700 font-bold text-xs group-hover:text-black">{btn.label}</h4>
+                      </button>
+                   ))}
+                </div>
               </div>
             </div>
           </>
@@ -69,6 +122,8 @@ const App: React.FC = () => {
         return <Missions />;
       case 'conectados':
         return <Conectados />;
+      case 'canal-jr':
+        return <CanalJR />;
       default:
         return <Hero onJoinClick={() => setCurrentView('missions')} onAboutClick={() => setCurrentView('about')} />;
     }
@@ -82,7 +137,7 @@ const App: React.FC = () => {
         {renderView()}
       </main>
 
-      <footer className="bg-black py-16 mt-auto text-white rounded-t-[3rem]">
+      <footer className="bg-gradient-to-br from-gray-900 to-black py-16 mt-auto text-white rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
             <span className="text-3xl md:text-5xl font-black tracking-tighter text-jr-blue uppercase">JESUSZANDO</span>
