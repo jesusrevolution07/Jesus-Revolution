@@ -13,90 +13,56 @@ export const Maezinha: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-blue-50/50 text-black relative overflow-hidden uppercase">
-      
+    <div className="min-h-screen bg-white text-jr-darkblue relative overflow-hidden uppercase">
       <div className="max-w-5xl mx-auto px-4 py-20 relative z-10">
-        
         <div className="text-center mb-16">
-          <span className="bg-white text-jr-blue px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-sm">
+          <span className="bg-jr-blue text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-neopop border-2 border-jr-blue">
             MÃEZINHA
           </span>
-          <h2 className="text-4xl md:text-6xl font-black mt-6 tracking-tight text-blue-900 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-black mt-6 tracking-tight text-jr-darkblue leading-tight">
             TUDO COM JESUS E<br/> NADA SEM MARIA
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-center mb-20">
-          
-          {/* Card Image */}
-          <div className="h-[500px] bg-white rounded-[3rem] p-4 shadow-soft border border-white flex items-center justify-center relative overflow-hidden group">
-             <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 to-white opacity-50"></div>
-             {/* Simple Icon */}
-             <div className="w-48 h-48 bg-blue-50 rounded-full flex items-center justify-center text-blue-300">
+          <div className="h-[500px] bg-white rounded-[3rem] p-4 shadow-neopop border-4 border-jr-blue flex items-center justify-center relative overflow-hidden">
+             <div className="w-48 h-48 bg-gradient-primary rounded-full flex items-center justify-center text-white shadow-xl">
                 <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
              </div>
              <div className="absolute bottom-10 left-0 w-full text-center">
-                <p className="text-blue-900 font-bold opacity-50 uppercase">RAINHA DA JUVENTUDE</p>
+                <p className="text-jr-darkblue font-bold uppercase tracking-widest">RAINHA DA JUVENTUDE</p>
              </div>
           </div>
 
-          {/* Actions */}
           <div className="space-y-6">
-            <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-white text-center">
-               <p className="text-xl font-medium text-gray-600 italic leading-relaxed uppercase">
+            <div className="bg-blue-50 p-10 rounded-[3rem] shadow-sm border-2 border-blue-200 text-center">
+               <p className="text-xl font-medium text-jr-darkblue italic leading-relaxed uppercase">
                  "AVE MARIA, CHEIA DE GRAÇA, O SENHOR É CONVOSCO..."
                </p>
             </div>
-
             <div className="grid grid-cols-2 gap-4">
-               {/* Candle Action */}
-               <div className="bg-white p-6 rounded-[2.5rem] text-center hover:shadow-lg transition-all cursor-pointer border border-blue-50 group hover:-translate-y-1" onClick={() => setCandles(c => c + 1)}>
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full mx-auto mb-3 flex items-center justify-center text-yellow-500 group-hover:bg-yellow-200 transition-colors">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C12 2 8 8 8 13C8 16.5 10 19 12 19C14 19 16 16.5 16 13C16 8 12 2 12 2ZM12 22C11 22 10 21.5 10 20.5C10 19.5 11 19 12 19C13 19 14 19.5 14 20.5C14 21.5 13 22 12 22Z"/></svg>
+               <div className="bg-white p-6 rounded-[2.5rem] text-center hover:shadow-neopop transition-all cursor-pointer border-2 border-blue-200 hover:border-jr-blue group" onClick={() => setCandles(c => c + 1)}>
+                  <div className="w-12 h-12 bg-jr-blue rounded-full mx-auto mb-3 flex items-center justify-center text-white group-hover:bg-jr-darkblue">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C12 2 8 8 8 13C8 16.5 10 19 12 19C14 19 16 16.5 16 13C16 8 12 2 12 2Z"/></svg>
                   </div>
-                  <div className="font-black text-3xl text-gray-800">{candles}</div>
-                  <div className="text-xs font-bold uppercase mt-1 text-gray-400">ACENDER VELA</div>
+                  <div className="font-black text-3xl text-jr-darkblue">{candles}</div>
+                  <div className="text-xs font-bold uppercase mt-1 text-blue-400">ACENDER VELA</div>
                </div>
-
-               {/* Flower Action */}
-               <div className="bg-white p-6 rounded-[2.5rem] text-center hover:shadow-lg transition-all cursor-pointer border border-blue-50 group hover:-translate-y-1" onClick={() => setFlowers(f => f + 1)}>
-                   <div className="w-12 h-12 bg-pink-100 rounded-full mx-auto mb-3 flex items-center justify-center text-pink-500 group-hover:bg-pink-200 transition-colors">
-                     {/* Clean Flower Icon */}
-                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.5c0 0-3 3-3 6.5s3 4.5 3 4.5 3-1 3-4.5-3-6.5-3-6.5z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15.5v6" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17.5c-2 0-3.5-1-4.5-2.5" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17.5c2 0 3.5-1 4.5-2.5" />
-                     </svg>
+               <div className="bg-white p-6 rounded-[2.5rem] text-center hover:shadow-neopop transition-all cursor-pointer border-2 border-blue-200 hover:border-jr-blue group" onClick={() => setFlowers(f => f + 1)}>
+                   <div className="w-12 h-12 bg-jr-blue rounded-full mx-auto mb-3 flex items-center justify-center text-white group-hover:bg-jr-darkblue">
+                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.5c0 0-3 3-3 6.5s3 4.5 3 4.5 3-1 3-4.5-3-6.5-3-6.5z" /></svg>
                   </div>
-                  <div className="font-black text-3xl text-gray-800">{flowers}</div>
-                  <div className="text-xs font-bold uppercase mt-1 text-gray-400">DAR FLOR</div>
+                  <div className="font-black text-3xl text-jr-darkblue">{flowers}</div>
+                  <div className="text-xs font-bold uppercase mt-1 text-blue-400">DAR FLOR</div>
                </div>
             </div>
-            
-            <div className="bg-blue-100 text-jr-blue p-6 rounded-[2rem] text-center text-sm font-bold uppercase">
+            <div className="bg-jr-darkblue text-white p-6 rounded-[2rem] text-center text-sm font-bold uppercase border-2 border-jr-darkblue shadow-lg">
                A CADA FLORZINHA OU ACENDER UMA VELA, REZE UMA AVE MARIA.
             </div>
           </div>
         </div>
-
-        {/* Titles Section */}
-        <div className="pt-10">
-            <h3 className="text-2xl font-black text-black tracking-tight mb-8 ml-4 uppercase">TÍTULOS DE AMOR</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-                {titles.map((title, idx) => (
-                    <div key={idx} className="bg-white p-8 rounded-[2.5rem] hover:shadow-soft transition-all border border-transparent hover:border-blue-100 hover:rotate-1">
-                        <h4 className="font-bold text-lg text-blue-900 mb-1 uppercase">
-                            {title.name}
-                        </h4>
-                        <p className="text-sm text-gray-500 leading-relaxed font-bold uppercase">{title.desc}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-
       </div>
     </div>
   );
