@@ -60,7 +60,7 @@ const jesusMessageSchema: Schema = {
 export const getSpiritualGuidance = async (userInput: string): Promise<SpiritualResponse> => {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3-flash-preview",
       contents: `O usuário é um jovem do movimento 'Jesus Revolution'. Ele disse: "${userInput}". 
       
       Aja como um DJ e mentor jovem, carismático e cheio de fé. 
@@ -96,7 +96,7 @@ export const getSpiritualGuidance = async (userInput: string): Promise<Spiritual
 export const getJesusTalk = async (userInput: string): Promise<JesusMessageResponse> => {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3-flash-preview",
       contents: `O usuário está buscando conforto e direção. Ele sente: "${userInput}".
       
       Aja como JESUS CRISTO falando diretamente ao coração desse filho(a).
